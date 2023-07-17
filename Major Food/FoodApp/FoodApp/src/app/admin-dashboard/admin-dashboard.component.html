@@ -1,0 +1,41 @@
+<mat-toolbar id="tb1" >
+<img style="width:200px;" src="./assets/FOODIELOGO.jpg" >
+  <h2 routerLink="/userPage" style="color: aliceblue; margin-left: 5%; font-size:18px;"> View All Users</h2>
+  <h2 routerLink="/requestView" matBadge="{{count}}" matBadgeOverlap="false" style="color: aliceblue;margin-left:5%;font-size:18px;">View Owner Requests</h2>
+  <h2 routerLink="/addResForm" style="color: aliceblue;margin-left:5%;font-size:18px;">Add Restaurant</h2>
+  <button style="height: 30px; width: 30px; margin-left: 27%;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h3 style="color: whitesmoke; margin-left:10px;">{{userDetails.name}}</h3>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/editUserDetails/{{userDetails.emailID}}">
+      <mat-icon>update</mat-icon>
+      <span>Update Profile</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- {{userDetails|json}} -->
+<!-- <h2 style="background-color: lightgreen;width: 12%; text-align: center;">HELLO ADMIN</h2><br> -->
+<img align="right" src="./assets/admin_login.png" style="width: 90px;"> <br>
+
+<div *ngFor="let a of allRestaurants" id="carddiv">
+  <mat-card >
+    <h1>{{a.name}}</h1>
+    <img id="cardimg" src="data:image/JPEG;base64,{{a.restImage.data}}" >
+
+    <mat-card-content>
+      <h2>{{a.location}}</h2>
+    </mat-card-content>
+    <hr>
+    <mat-card-actions>
+      <button id="btn1" (click)="deleteRestaurant(a.name)" mat-raised-button aria-label="Example icon button with a plus one icon">
+        <mat-icon>delete</mat-icon>Delete Restaurant
+      </button>
+      <!-- <mat-icon>delete</mat-icon> -->
+    </mat-card-actions>
+  </mat-card>
+</div><br>

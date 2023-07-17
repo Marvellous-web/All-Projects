@@ -1,0 +1,28 @@
+#tb1{
+  background-color: black;
+  height: 90px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+#form1{
+  border: 2px solid gray;
+  width: 50%;
+  margin-top: 30px;
+  margin-left: 25%;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px gray;
+}
+form{
+  margin-left: 120px;
+}
+mat-form-field{
+  width: 75%;
+}

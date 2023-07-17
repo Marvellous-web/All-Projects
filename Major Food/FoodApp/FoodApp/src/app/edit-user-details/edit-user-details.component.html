@@ -1,0 +1,47 @@
+<mat-toolbar id="tb1" >
+  <div id="d1">
+    <img src="./assets/FOODIELOGO.jpg" style="width:200px">
+  </div>
+  <button mat-fab style="height: 30px; width: 30px;margin-left: 72%;" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <img src="data:image/JPEG;base64,{{userDetails.profile.data}}" style="width: 30px; height: 30px; border-radius: 50%;margin-top:-88%;">
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+  <h3 style="color: whitesmoke;margin-left:10px;font-size: 15px;">{{userDetails.name}}</h3>
+</mat-toolbar>
+<mat-icon (click)="goToOwnerView()">arrow_circle_left</mat-icon>
+
+<!-- {{userDetails | json}} -->
+<div id="form1">
+    <h1 style="margin-left: 50px; margin-top: 10px; font-weight: bold;">Edit User Form And Upload the Profile Picture</h1>
+    <form  [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div>
+        <h3>Add a Profile Picture</h3>
+        <input type="file" (change)="onFileChanged($event)" formControlName="profile">
+      </div>  <br>
+         <mat-form-field appearance="fill">
+        <mat-label>Email Id (Not Changable)</mat-label>
+        <input matInput type="text" name="emailID" id="emailID" [(ngModel)]="userDetails.emailID" formControlName="emailID" value="{{userDetails.emailID}}" readonly>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Name (Changable)</mat-label>
+        <input matInput type="text" name="name" id="name" [(ngModel)]="userDetails.name" formControlName="name" value="{{userDetails.name}}">
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Role (Not Changable)</mat-label>
+        <input matInput type="text" name="role" id="role" [(ngModel)]="userDetails.role" formControlName="role" value="{{userDetails.role}}" readonly>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Location (Not Changable)</mat-label>
+        <input matInput type="text" name="location" id="location" [(ngModel)]="userDetails.location" formControlName="location"  value="{{userDetails.location}}" readonly>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput type="text" name="mobileNo" id="mobileNo" [(ngModel)]="userDetails.mobileNo" formControlName="mobileNo" value="{{userDetails.mobileNo}}">
+      </mat-form-field>  <br>
+      <button mat-raised-button color="warn" style="margin-left: 25%;">Save Changes</button>
+      </form>

@@ -1,0 +1,57 @@
+<!-- {{userDetails|json}} -->
+<mat-toolbar id="tb1" >
+ <!-- <mat-icon class="material-icons red-color">restaurant</mat-icon><span id="span">Foodie Hunt</span> -->
+ <img style=" width: 190px" src="./assets/FOODIELOGO.jpg" alt="">
+ <mat-icon matBadge="{{count}}" matBadgeSize="small" matBadgeColor="warn" class="red-color" matTooltip="go to place Order" style="margin-left: 68%;cursor: pointer;" routerLink="/placeOrder">shopping_cart</mat-icon>
+    <button style="height: 30px; margin-left: 2% ;width: 30px;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h3 style="color: whitesmoke;margin-left: 15px;font-size:15px;">{{userDetails.name}}</h3>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- {{resDetails | json}} -->
+<!-- {{userDetails | json}} -->
+<!-- <mat-icon>back</mat-icon> -->
+<!-- <button id="back" mat-raised-button (click)="goBack()" >Back</button> -->
+<mat-icon (click)="goBack()">arrow_circle_left</mat-icon>
+<div style="margin-left: 5%; margin-top: 1%;">
+  <div class="grid-container">
+    <img id="img1" align="left" src="data:image/JPEG;base64,{{resDetails.restImage.data}}">
+    <div>
+      <h1 id="restName">{{resDetails.name}}</h1>
+      <h3 style=" font-size:20px"><mat-icon>room</mat-icon>{{resDetails.location}}</h3>
+    </div>
+  </div>
+
+  <!-- <h1 id="restName">{{resDetails.name}}</h1> -->
+  <!-- <mat-icon>room </mat-icon><span style="font-size: 20px;;">{{resDetails.location}}</span> -->
+  <div *ngFor="let cui of resDetails.cuisines" style="margin-top: 20px;">
+    <h3><b>{{cui.cuisineName}}</b></h3>
+        <div *ngFor="let i of cui.items" id="itemCard">
+          <mat-card  style="width:150px;height:200px">
+            <img style="width:120px;height: 80px;" src="data:image/JPEG;base64,{{i.itemImage.data}}" >
+              <mat-card-content>
+                <h2 style="margin-bottom: 3%;">{{i.itemName}}</h2>
+                <div style="display: inline-flex;margin-bottom: -25%;">
+                  <h4 style="margin-top: -34%;">RS. {{i.price}}</h4>
+                  <mat-icon (click)="addToCart(i)" matTooltip="Add To Cart" style="margin-top: -34%;margin-left: 23px; cursor: pointer;">add_circle</mat-icon>
+                </div>
+              </mat-card-content>
+          </mat-card>
+        </div> <hr style="border:1px solid black">
+  </div>
+  <!-- <h2>Number of Cart Items : {{count}}</h2> -->
+<!--
+<div style="border: 2px solid black; width: 20%;">
+  <div style="margin: 3%;">
+
+    <button mat-raised-button color="accent" routerLink="/placeOrder">Place Order</button>
+  </div> -->
+
+</div>
+<router-outlet></router-outlet>

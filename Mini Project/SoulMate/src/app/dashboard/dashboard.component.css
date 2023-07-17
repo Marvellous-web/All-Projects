@@ -1,0 +1,7 @@
+#card{
+    background-color: aquamarine;
+    width: 30%;
+    float: left;
+    margin-left: 2%;
+    border-radius: 10px;
+}

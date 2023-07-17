@@ -1,0 +1,59 @@
+<mat-toolbar id="tb1">
+ <img style="width:200px" src="./assets/FOODIELOGO.jpg">
+</mat-toolbar>
+
+<mat-icon (click)="gotohomepage()">arrow_circle_left</mat-icon>
+<!-- {{restaurantDetails|json}} -->
+<!-- <div style="margin-left: 5%; margin-top: 3%;"> -->
+  <div class="grid-container">
+    <img id="img1" align="left" src="data:image/JPEG;base64,{{restaurantDetails.restImage.data}}">
+    <div>
+      <h1 id="restName">{{restaurantDetails.name}}</h1>
+      <h3 style="font-size:20px;"><mat-icon>room</mat-icon>{{restaurantDetails.location}}</h3>
+    </div>
+  </div>
+<br>
+  <div *ngFor="let c of restaurantDetails.cuisines" style="margin-top: 20px; margin-left: 20px;">
+    <!-- <mat-chip-list id="cuisineName" aria-label="Cuisine selection" > -->
+        <!-- <mat-chip (click)="show()" style="font-size: 16px;">{{c.cuisineName}}</mat-chip> -->
+          <!-- </mat-chip-list> -->
+          <h3><b>{{c.cuisineName}}</b></h3>
+          <div >
+             <div *ngFor="let i of c.items" id="itemCard">
+              <mat-card style="width:150px;height:180px">
+                <img style="width:120px;height: 80px;" src="data:image/JPEG;base64,{{i.itemImage.data}}" >
+                    <mat-card-content>
+                      <h3 style="padding-top: 5px;line-height:1">{{i.itemName}}</h3>
+                      <p style="margin-top: -10px;">RS. {{i.price}}</p>
+                    </mat-card-content>
+              </mat-card>
+             </div><hr style="border:1px solid black">
+          </div>
+</div>
+
+
+
+<!-- <div>
+  <div *ngFor="let c of restaurantDetails.cuisines">
+    <div style="float: left; margin-left: 20px; cursor: pointer;" >
+      <mat-card style="width: 130px; height: 130px;border-radius: 50%;" (click)="show()" >
+        <img mat-card-image src="./assets/burger.jfif" style="border-radius:50%; height: 130px;" >
+      </mat-card>
+      <h2 style="text-align: center;">{{c.cuisineName}}</h2>
+      <div *ngIf="showItems" style="float: left;" >
+        <hr>
+        <div *ngFor="let i of c.items" >
+          <mat-card >
+            <img mat-card-sm-image src="./assets/idli.jpg" >
+                <mat-card-content>
+                  <h2>{{i.itemName}}</h2>
+                  <h3>RS. {{i.price}}</h3>
+                </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+

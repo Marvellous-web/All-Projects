@@ -1,0 +1,110 @@
+<mat-toolbar id="tb1" >
+  <div id="d1">
+<img  style="width:200px;" src="./assets/FOODIELOGO.jpg">
+  </div>
+  <button style="height: 30px; width: 30px; margin-left: 75%;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h5 style="color: whitesmoke; margin-left:10px;font-size: 15px;">{{userDetails.name}}</h5>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- <button mat-raised-button>Back</button> -->
+<mat-icon (click)="geBack()">arrow_circle_left</mat-icon>
+<img align="right" src="./assets/admin_login.png" style="width: 90px;"> <br>
+
+<br>
+<div id="restForm">
+  <h2 style="margin-left: 4%; margin-top: 1%;">Add New Restaurant Here</h2>
+  <form [formGroup]="addRestaurant" (ngSubmit)="addRestaurantToDB()" >
+      <div>
+        <mat-label>Add Image</mat-label>
+        <input type="file" (change)="onFileChanged($event)" formControlName="restImage">
+      </div>
+      <br>
+      <mat-form-field appearance="fill">
+          <mat-label>Restaurant Name</mat-label>
+          <input matInput type="text" name="name" id="name" formControlName="name" required>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+          <mat-label>Owner Email ID</mat-label>
+          <input matInput type="text" name="ownerEmailID" id="ownerEmailID" formControlName="ownerEmailID" required>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+          <mat-label>Location</mat-label>
+          <input matInput type="text" name="location" id="location" formControlName="location" required>
+      </mat-form-field><br>
+
+        <!-- <div formArrayName="cuisines" *ngFor="let cui of getControls1();let i=index">
+          <div [formGroupName]="i">
+              <mat-form-field>
+                  <mat-label>Cuisine Name</mat-label>
+                  <input matInput type="text" name="cuisineName" id="cuisineName" formControlName="cuisineName" required>
+                  <div formArrayName="items" *ngFor="let ite of getControls2();let i=index">
+                      <div [formGroupName]="i">
+                          <mat-form-field>
+                              <mat-label>Item Name</mat-label>
+                              <input matInput type="text" name="itemName" id="itemName" formControlName="itemName" required>
+                          </mat-form-field>
+                          <mat-form-field>
+                          <mat-label>Price</mat-label>
+                          <input matInput type="text" name="price" id="price" formControlName="price" required>
+                      </mat-form-field>
+                      </div>
+                  </div>
+                  <mat-icon (click)="addItemsField()">add</mat-icon>
+              </mat-form-field></div></div>
+              <mat-icon (click)="addCuisineField()">add</mat-icon> <br> -->
+              <button style="margin-left:10%;" mat-raised-button color="warn" [disabled]="addRestaurant.invalid">Add Restaurant</button>
+              <button mat-raised-button color="warn" type="reset" style="margin-left: 15%;">Clear</button>
+ </form>
+</div>
+
+
+<!-- <mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Add New Restaurant Here</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Restaurant Name</mat-label>
+        <input matInput placeholder="Restaurant name" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Owner Email ID</mat-label>
+        <input matInput placeholder="ex.abc@gmail.com" formControlName="ownerEmailID" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Location</mat-label>
+        <input matInput placeholder="Location" formControlName="location" required>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Fill out Cuisines">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper> -->

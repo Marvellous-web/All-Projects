@@ -1,0 +1,34 @@
+App works
+<!-- <app-user1></app-user1> -->
+
+<ng-template [check]="true">
+    <div>
+        Hello
+    </div>
+</ng-template>
+
+<!-- one way binding :Text Interpolation -->
+{{title}}
+<a routerLink="/home">Home</a>
+
+<a routerLink="/child">Child component</a>
+
+<!-- //one way property binding -->
+<input [type]="v1">
+
+<!-- event binding -->
+<button (mouseup)="fun()">Event</button>
+
+
+<!-- two way data binding, In two binding firstly it will perform property binding then event binding, thru ngModel it takes the input from the user as an event -->
+<input type="text" [(ngModel)]="TwoWaytext">
+<!--//event binding -->
+{{TwoWaytext}}
+
+<!-- send data from parent to child here parent is app component -->
+<app-child-comp  [sendDataToChild]="datasend"></app-child-comp>
+
+
+<router-outlet></router-outlet>
+
+

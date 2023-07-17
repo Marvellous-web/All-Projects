@@ -1,0 +1,26 @@
+#tb1{
+  background-color: black;
+  height: 90px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+.red-color {
+  color:red;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+
+#table{
+
+  margin:  4% 0% 0% 5%;
+  /* width: 40%; */
+}
+#btn1{
+  cursor: pointer;
+}

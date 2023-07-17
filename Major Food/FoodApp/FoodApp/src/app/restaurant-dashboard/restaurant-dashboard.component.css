@@ -1,0 +1,67 @@
+
+#homeimg{
+  width: 99%; margin-top: 20px;
+  height: 42%;
+  position: absolute;
+  z-index: -1;
+}
+#h2{
+display: inline-flex;
+/* margin-top: 2%; */
+font-family: 'Times New Roman', Times, serif;
+position: fixed;
+/* background-color: #141319; */
+background-image: url("src\assets\add_restaurant");
+background-size: cover;
+width: 99%;
+z-index: 5;
+}
+
+#searchBar{
+  margin-left: 15%;
+  color: antiquewhite;
+  z-index: 2;
+  text-decoration-color: aliceblue;
+}
+#cardimg{
+  width: 250px;
+  height: 150px;
+}
+#carddiv{
+  display: inline-flex;
+  margin-left: 40px;
+  /* border-radius: 20px; */
+  box-shadow: 5px 5px 5px gray;
+  margin-top: 100px;
+  cursor: pointer;
+}
+.red-color {
+  color:red;
+}
+
+#learn{
+  font-size: 18px;
+  text-decoration: underline;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+hr{
+margin-top: 0;
+margin-bottom: 0;
+border: 0;
+border-top: 1px solid black;
+}
+mat-card:hover{
+  transform: scale(1.07);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+::placeholder{
+  color: whitesmoke;
+  font-size: 10px;
+}
+
+/* video{
+  width: 640px;
+  height: 480px;
+} */

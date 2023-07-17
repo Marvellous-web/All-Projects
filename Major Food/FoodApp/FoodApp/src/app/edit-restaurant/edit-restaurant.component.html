@@ -1,0 +1,92 @@
+
+<!-- {{restaurantDetails|json}} -->
+<mat-toolbar id="tb1" >
+  <div id="d1">
+ <!-- <mat-icon class="material-icons red-color">restaurant</mat-icon><span id="span">Foodie Hunt</span> -->
+ <img style="width:200px"src="./assets/FOODIELOGO.jpg">
+  </div>
+
+  <button style="height: 30px; width: 30px; margin-left: 73%;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h3 style="color: whitesmoke; margin-left:10px;">{{userDetails.name}}</h3>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/editUserDetails/{{userDetails.emailID}}">
+      <mat-icon>update</mat-icon>
+      <span>Update Profile</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- <button mat-raised-button (click)="goToOwnerView()">Back</button> -->
+<mat-icon (click)="goToOwnerView()">arrow_circle_left</mat-icon>
+<img align="right" src="./assets/owner_login.png"style="width: 80px;">
+<hr>
+<div style="width:75%; margin-left: 10%; box-shadow: 0px 5px 5px 5px gray; border-radius: 30px;">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <h1 style="font-weight:bold;font-style:italic;text-decoration: underline;">{{restaurantDetails.name}}</h1>
+        </mat-panel-title>
+        <mat-panel-title>
+          <mat-icon style="margin-left: 70%;">room</mat-icon><h2>{{restaurantDetails.location}}</h2>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <h2 style="color:coral">Add New Cuisines Here....</h2>
+      <div >
+        <mat-form-field appearance="fill">
+          <input matInput type="text" name="cuisineName" placeholder="Ex.India,Panjabi,...." [(ngModel)]="cuisineName" required>
+        </mat-form-field> <br>
+        <button mat-raised-button (click)="sendCuisine()">submit</button>
+      </div>
+      <hr id="hr">
+      <h1 style="text-decoration: underline; color:royalblue">Cuisines List</h1>
+      <div *ngFor="let c of restaurantDetails.cuisines">
+        <h2>{{c.cuisineName}}
+          <!-- <button style="font-size: 13px;" mat-raised-button id="cuisineaction" (click)="showItem()">Show tems</button> -->
+         <!-- <button (click)="removeCuisine(c)" mat-raised-button><mat-icon >remove_circle</mat-icon>Remove Cuisine</button> -->
+        </h2>
+          <div>
+            <button style="font-size: 13px;" mat-raised-button id="addItem" (click)="showItemForm()"><mat-icon>add_circle</mat-icon>Add tems</button> <br> <br>
+            <form [formGroup]="itemForm" *ngIf="show1">
+              <div>
+                <input type="file" (change)="onFileChanged($event)" formControlName="itemImage">
+                <p>Add Image</p>
+              </div>
+              <mat-form-field appearance="fill">
+              <input matInput type="text" formControlName="itemName" placeholder="Item Name Ex.pizza,idli,..."  required>
+              </mat-form-field> <br>
+              <mat-form-field appearance="fill">
+              <input matInput type="text" formControlName="price" placeholder="Item Price" required>
+            </mat-form-field> <br>
+              <button mat-raised-button (click)="sendItems(c.cuisineName)">submit</button>
+            </form>
+          </div> <br>
+          <button style="font-size: 13px;" mat-raised-button id="cuisineaction" (click)="showItem()"><mat-icon>list</mat-icon> Items List</button>
+          <br> <br>
+         <div *ngIf="show" style="display: inline-flex;">
+          <div *ngFor="let i of c.items">
+            <mat-card>
+              <mat-card-content>
+                <img style="width:150px;height: 90px;" src="data:image/JPEG;base64,{{i.itemImage.data}}" alt=""> <br>
+               <h2>{{i.itemName}}</h2>
+                RS. {{i.price}}
+              </mat-card-content> <hr id="hr1">
+                <button (click)="removeItems(c.cuisineName,i.itemName)" mat-raised-button id="removebtn">Remove Item</button>
+            </mat-card>
+          </div>
+         </div>
+         <button (click)="removeCuisine(c)" mat-raised-button style="margin-left: 80%;" color="warn"><mat-icon >remove_circle</mat-icon>Remove Cuisine</button>
+         <hr>
+      </div>
+      <div >
+
+      </div>
+    </mat-expansion-panel>
+    </mat-accordion>
+</div>
+

@@ -1,0 +1,44 @@
+#tb1{
+  background-color: black;
+  height:90px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+.red-color {
+  color:red;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+#btn{
+  color: gray;
+  background-color: antiquewhite;
+}
+#cardimg{
+  width: 250px;
+  height: 150px;
+
+}
+#carddiv{
+  display: inline-flex;
+  margin-left: 40px;
+  box-shadow: 5px 5px 5px gray;
+  margin-top:30px;
+  cursor: pointer;
+}
+hr{
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 0;
+  border-top: 1px solid black;
+  }
+  mat-card:hover{
+    transform: scale(1.07);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
+

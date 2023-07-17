@@ -1,0 +1,29 @@
+<p>SignUp Here</p>
+<a routerLink="/home">Home</a>
+<br>
+<div >
+  <form [formGroup]="signupForm" (ngSubmit)="signupUser()">
+    <h1>Fill Up User Details</h1>
+    <mat-form-field appearance="fill" >
+      <mat-label>User Name</mat-label>
+      <input matInput type="text" formControlName="name" required>
+    </mat-form-field> <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Email Id</mat-label>
+      <input matInput type="text" name="emailId" id="emailId" formControlName="emailId" required>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput type="text" formControlName="password" required minlength="3">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Mobile Number</mat-label>
+      <input matInput type="text" formControlName="mobile">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" [disabled]="signupForm.invalid">Signup</button>
+    <button mat-raised-button color="warn" type="reset">Clear</button>
+
+
+  </form>
+  </div>

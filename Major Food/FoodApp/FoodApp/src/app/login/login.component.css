@@ -1,0 +1,16 @@
+mat-form-field{
+  width: 70%;
+  margin-left: 11%;
+  margin-top: 5px;
+}
+button
+{
+  margin-left: 23%;
+}
+#close
+{
+  margin-left: 45%;
+}
+#password{
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+<p>child-comp works!</p>
+
+{{sendDataToChild}}
+
+<button (click)="search()">send data to parent</button>
+<form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+   Email1 <input type="text" formControlName="email">
+   Password1 <input type="password" formControlName="password">
+   <input type="submit">
+</form>
+<router-outlet></router-outlet>

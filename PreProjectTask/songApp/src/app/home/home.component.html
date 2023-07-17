@@ -1,0 +1,29 @@
+<h2>All Songs</h2>
+<!-- {{songList|json}} -->
+<br>
+
+<a routerLink="/signup">SignUp</a> |
+<a routerLink="/login">Login</a> |
+<!-- <a routerLink="/userDashboard">User Dashboard<a> -->
+
+<br> <br>
+<table border="1">
+  <thead>
+    <th>Song Id</th>
+    <th>Song Name</th>
+    <th>Artist Name</th>
+    <th>Song Gener</th>
+    <th>Song Rating</th>
+    <th>Song Duration</th>
+
+  </thead>
+  <tbody *ngFor="let song of songList">
+    <td>{{song.songId}}</td>
+    <td>{{song.songName}}</td>
+    <td>{{song.artist}}</td>
+    <td>{{song.genre}}</td>
+    <td>{{song.rating}}</td>
+    <td>{{song.duration}}</td>
+
+  </tbody>
+</table>

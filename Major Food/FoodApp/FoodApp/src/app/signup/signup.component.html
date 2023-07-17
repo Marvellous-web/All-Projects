@@ -1,0 +1,72 @@
+<div id="form1">
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()" >
+    <h1>Fill Up User Details  <button mat-button class="close-icon" color="warn" [mat-dialog-close]="true" id="close">
+      <mat-icon>close</mat-icon>
+  </button></h1><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Email Id</mat-label>
+      <input matInput type="text" name="emailID" id="emailID" formControlName="emailID" required>
+      <mat-icon matPrefix>mail</mat-icon>
+      <mat-error *ngIf="emailID?.errors?.['required']">
+        Email ID is required
+      </mat-error>
+      <mat-error *ngIf="emailID?.errors?.['pattern']">
+        Please Enter Valid Email ID
+    </mat-error>
+    </mat-form-field><br>
+
+    <mat-form-field appearance="fill" >
+      <mat-label>User Name</mat-label>
+      <input matInput type="text" formControlName="name" required>
+      <mat-icon matPrefix>person</mat-icon>
+      <mat-error *ngIf="name?.errors?.['required']">
+       Please Enter Full Name
+      </mat-error>
+      <mat-error *ngIf="name?.errors?.['pattern']">
+      Name can only contain letters and spaces. Please Enter Valid Name.
+    </mat-error>
+    </mat-form-field> <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+      <mat-icon matSuffix (click)="togglePassword()" id="password"> {{showPassword?'visibility_off':'visibility'}}</mat-icon>
+      <mat-error *ngIf="password?.errors?.['required']">
+        Please Enter Password.
+       </mat-error>
+      <mat-error *ngIf="password?.errors?.['pattern']">
+        Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+        and a number.
+    </mat-error>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput type="text" formControlName="location" required minlength="3">
+      <mat-icon matPrefix>room</mat-icon>
+      <mat-error *ngIf="password?.errors?.['required']">
+        Please Enter Location.
+       </mat-error>
+      <mat-error *ngIf="location?.errors?.['pattern']">
+       Location can only contain letters. Please Enter Valid Location.
+     </mat-error>
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Mobile Number</mat-label>
+      <input matInput type="text" formControlName="mobileNo">
+      <mat-icon matPrefix>call</mat-icon>
+      <mat-error *ngIf="mobileNo?.errors?.['pattern']">
+        Please Enter Valid Mobile No.
+       </mat-error>
+    </mat-form-field>
+    <br>
+    <!-- <mat-radio-group aria-label="Select an option" style="margin-left: 11%;" >
+      <mat-radio-button value="Customer">Customer</mat-radio-button>
+      <mat-radio-button value="Owner">Owner</mat-radio-button>
+    </mat-radio-group>
+    <br><br> -->
+    <br>
+    <button mat-raised-button color="warn" [disabled]="registerForm.invalid">Signup</button>
+    <button mat-raised-button color="warn" type="reset">Clear</button> <br> <br>
+     <p style="margin-left: 10%;">Already have an account? <a style="color:blue" (click)="goToLogin()" [mat-dialog-close]="true"> Login </a> </p>
+  </form>
+  </div>

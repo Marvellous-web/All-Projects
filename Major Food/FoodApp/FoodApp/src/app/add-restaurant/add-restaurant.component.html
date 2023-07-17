@@ -1,0 +1,15 @@
+<mat-toolbar id="tb1" >
+  <!-- <mat-icon >arrow_circle_left</mat-icon> -->
+  <mat-icon (click)="geBack()" style="color:white">arrow_back</mat-icon>
+  <div id="d1">
+    <img style="width: 180px; margin-left: 20px;margin-top: -18px;" src="./assets/FOODIELOGO.jpg" >
+  </div>
+  <h4 style="font-size:15px;cursor: pointer; padding-top: 20px; color: whitesmoke; margin-left: 90%;" (click)="openLogin()">Login</h4>
+</mat-toolbar>
+<img src="./assets/add_restaurant" alt="" style="width: 99.99%;height: 60%;">
+<div style="color:whitesmoke;margin-left: 20%; margin-top: 10%;">
+  <h1 style="font-size: 40px;">Register your restaurant on FoodieHunt <br> <span style="font-size: 15px;">and get more customers!</span></h1>
+  <!-- <h3>and get more customers! <a style="color:blue; cursor: pointer;" (click)="openLogin()">Login</a></h3> -->
+  <button mat-raised-button color="primary" (click)="openRequestForm()">Register Your Restaurant</button>
+</div>
+

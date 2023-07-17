@@ -1,0 +1,113 @@
+
+  	<div class="container">
+      <form [formGroup]="registerForm" (ngSubmit)="signUpUser()" autocomplete="on">
+        <!--First name-->
+    		<div class="box">
+          <label for="firstName"  class="fl fontLabel"> First Name: </label>
+    			<div class="new iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+    			<div class="fr">
+    					<input type="text"  formControlName="name" placeholder="First Name"
+              class="textBox" autofocus="on" required>
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--First name-->
+			 <!--Age-->
+			 <div class="box">
+				<label for="age"  class="fl fontLabel"> Age: </label>
+					  <div class="new iconBox">
+				  <i class="fa fa-user" aria-hidden="true"></i>
+				</div>
+					  <div class="fr">
+							  <input type="text"  formControlName="age" placeholder="Age"
+					class="textBox" autofocus="on" required>
+					  </div>
+					  <div class="clr"></div>
+				  </div>
+				  <!--Age-->
+				   <!--City-->
+				   <div class="box">
+					<label for="city"  class="fl fontLabel"> City: </label>
+						  <div class="new iconBox">
+					  <i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+						  <div class="fr">
+								  <input type="text"  formControlName="city" placeholder="City"
+						class="textBox" autofocus="on" required>
+						  </div>
+						  <div class="clr"></div>
+					  </div>
+					  <!--First name-->
+					   <!--First name-->
+    		<div class="box">
+				<label for="Image"  class="fl fontLabel"> Image: </label>
+					  <div class="new iconBox">
+				  <i class="fa fa-user" aria-hidden="true"></i>
+				</div>
+					  <div class="fr">
+							  <input type="text"  formControlName="image" placeholder="Image"
+					class="textBox" autofocus="on" required>
+					  </div>
+					  <div class="clr"></div>
+				  </div>
+				  <!--First name-->
+
+
+      
+
+
+    		
+
+
+    		<!---Email ID---->
+    		<div class="box">
+          <label for="email" class="fl fontLabel"> Email ID: </label>
+    			<div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="email" required  placeholder="Email Id" class="textBox" formControlName="emailId">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!--Email ID----->
+
+
+    		<!---Password------>
+    		<div class="box">
+          <label for="password" class="fl fontLabel"> Password </label>
+    			<div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+    			<div class="fr">
+    					<input type="Password" required  placeholder="Password" class="textBox" formControlName="password">
+    			</div>
+    			<div class="clr"></div>
+    		</div>
+    		<!---Password---->
+
+       
+
+    		<!---Gender----->
+    		<div class="box radio">
+          <label for="gender" class="fl fontLabel" > Gender: </label>
+    				<input type="radio"  formControlName="gender" value="Male" required> Male &nbsp; &nbsp; &nbsp; &nbsp;
+    				<input type="radio"  formControlName="gender" value="Female" required> Female
+    		</div>
+    		<!---Gender--->
+
+
+
+
+
+    		<!---Submit Button------>
+    		<div class="box" style="background: #2d3e3f">
+    				<input type="Submit"  class="submit" [disabled]="registerForm.invalid" value="SUBMIT">
+				<b>	Already Registered?</b><button class="submit" (click)="login()">Login</button>
+    		</div>
+    		<!---Submit Button----->
+      </form>
+  </div>
+  
+  <!-- </body> -->
+<!-- </html> --> 
+
+

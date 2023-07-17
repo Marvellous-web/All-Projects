@@ -1,0 +1,27 @@
+<mat-toolbar>
+    <div class="spacer"></div>
+   <div class="nav">
+    <div class="user-controls" *ngIf="isUserLoggedIn()">
+
+        <button mat-icon-button>
+            <mat-icon class="icon user-warn"  (click)="toggleMenu()">person</mat-icon>
+        </button>
+         <div class="dropdown" id="dropdown" style="display:none">
+           <div>
+             <a type="button" (click)="logout();">
+                <mat-icon class="icon user-warn">logout</mat-icon> <span>Logout</span>
+             </a>
+           </div>
+            <div>
+                <a type="button" routerLink="/profile">
+                    <mat-icon class="icon user-warn">settings</mat-icon> <span>Profile</span>
+                </a>
+            </div>
+        </div>
+    </div>
+     <div class="main-controls" *ngIf="! isUserLoggedIn()">
+        <a href="/login">LOGIN</a>
+        <a href="/signup">SIGNUP</a>
+     </div>
+   </div>
+</mat-toolbar>

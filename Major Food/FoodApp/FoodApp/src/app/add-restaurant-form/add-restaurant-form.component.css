@@ -1,0 +1,39 @@
+#restForm
+{
+  border: 3px solid rgb(129, 123, 123);
+  width: 50%;
+  margin-top: 3%;
+  margin-left: 25%;
+  border-radius: 25px;
+}
+form{
+  margin: 5%;
+  margin-left: 18%;
+}
+mat-form-field{
+  width: 70%;
+}
+#tb1{
+  background-color: black;
+  height:90px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+.red-color {
+  color:red;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-mdc-form-field {
+  margin-top: 16px;
+}

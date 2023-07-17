@@ -1,0 +1,30 @@
+<mat-toolbar id="tb1" >
+  <div id="d1">
+    <img src="./assets/FOODIELOGO.jpg" style="width: 200px;">
+  </div>
+  <button style="height: 30px; width: 30px; margin-left: 75%;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h3 style="color: whitesmoke; margin-left:10px;font-size: 15px;">{{userDetails.name}}</h3>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<div id="div1">
+  <div style="padding: 30px;">
+  <h1>Send Feedback</h1>
+  <br>
+  <p>Tell us what you love about the app,or what we could be doing better.</p>
+  <br>
+  <form>
+    <mat-form-field class="example-full-width" style="width: 300px;">
+      <mat-label>Leave a Feedback</mat-label>
+      <textarea matInput type="text" name="feedback" placeholder="Ex. It makes me feel..." [(ngModel)]="feedback"></textarea>
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="addFeedback()">Submit</button>
+</div>
+</div>

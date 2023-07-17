@@ -1,0 +1,57 @@
+
+#tb1{
+  background-color: black;
+  height: 90px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+.red-color {
+  color:red;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+#btn{
+  color: gray;
+  background-color: antiquewhite;
+}
+#i1{
+  border-radius: 20px;
+}
+#search{
+  margin-left: 17%;
+  color: whitesmoke;
+
+}
+#carddiv{
+  display: inline-flex;
+  margin-left: 40px;
+  /* border-radius: 20px; */
+  box-shadow: 5px 5px 5px gray;
+  /* margin-top: 11%; */
+  cursor: pointer;
+}
+#cardimg{
+  width: 250px;
+  height: 150px;
+}
+#btn1{
+  margin-left: 75%;
+  color: black;
+}
+mat-card:hover{
+  transform: scale(1.07);
+box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+input{
+  color: rgb(199, 85, 85);
+}
+::placeholder{
+  color: whitesmoke;
+  font-size: 10px;
+}

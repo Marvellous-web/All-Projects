@@ -1,0 +1,28 @@
+<p>user-dashboard works!</p>
+<button (click)="logout()">Logout</button>
+<br>
+{{loginUserData|json}}
+<br> <br>
+<table border="1">
+  <thead>
+    <th>Song Id</th>
+    <th>Song Name</th>
+    <th>Artist Name</th>
+    <th>Song Genre</th>
+    <th>Song Rating</th>
+    <th>Song Duration</th>
+    <th>Options</th>
+  </thead>
+  <tbody *ngFor="let s of songList">
+    <td>{{s.songId}}</td>
+    <td>{{s.songName}}</td>
+    <td>{{s.artist}}</td>
+    <td>{{s.genre}}</td>
+    <td>{{s.rating}}</td>
+    <td>{{s.duration}}</td>
+    <td>
+      <button (click)="addToPlaylist(s)">Add To Playlist</button> |
+      <button (click)="playSong(s.songName)">Play Song</button>
+    </td>
+  </tbody>
+</table>

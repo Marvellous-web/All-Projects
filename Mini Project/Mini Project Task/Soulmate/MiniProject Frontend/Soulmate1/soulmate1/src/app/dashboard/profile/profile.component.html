@@ -1,0 +1,34 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <table>
+        <td *ngFor="let profile of profile">
+          <tr>
+            <th>Name: </th>
+            <td>{{ profile.name }}</td>
+          </tr>
+          <tr>
+            <th>Age: </th>
+            <td>{{ profile.age }}</td>
+          </tr>
+          <tr>
+            <th>Gender: </th>
+            <td class="gender">{{ profile.gender }}</td>
+          </tr>
+          <tr>
+            <th>City: </th>
+            <td>{{ profile.city }}</td>
+          </tr>
+          <tr>
+            <th>Email: </th>
+            <td>{{ profile.email }}</td>
+          </tr>
+        </td>
+      </table>
+      <div class="imge">
+        <img src="../../../assets/images/akansha.jpg" alt="">
+      </div>
+      <button mat-raised-button color="warn">Change Password</button>
+    </mat-card-content>
+  </mat-card>
+</div>

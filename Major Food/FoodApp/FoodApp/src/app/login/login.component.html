@@ -1,0 +1,31 @@
+<div id="form1">
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()" >
+    <h1>Fill Up User Details  <button mat-button class="close-icon" color="warn" [mat-dialog-close]="true" id="close">
+      <mat-icon>close</mat-icon>
+  </button></h1><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Email Id</mat-label>
+      <input matInput type="text" name="emailID" id="emailID" [ngModel]="mailID" formControlName="emailID">
+      <mat-icon matPrefix>mail</mat-icon>
+      <mat-error *ngIf="emailID?.errors?.['required']">
+        Email ID is required
+      </mat-error>
+      <mat-error *ngIf="emailID?.errors?.['pattern']">
+        Please Enter Valid Email ID
+    </mat-error>
+    </mat-form-field><br> <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" required >
+      <mat-icon matSuffix (click)="togglePassword()" id="password"> {{showPassword?'visibility_off':'visibility'}}</mat-icon>
+      <mat-error *ngIf="password?.errors?.['required']">
+        Password is required
+      </mat-error>
+
+    </mat-form-field><br> <br>
+    <button mat-raised-button color="warn" [disabled]="loginForm.invalid">Login</button>
+    <button mat-raised-button color="warn" type="reset">Clear</button> <br> <br>
+     <p style="margin-left: 55px;">Don't have an account? <a style="color:blue" (click)="goToSignup()" [mat-dialog-close]="true"> Sign Up </a> </p>
+     <p style="margin-left: 55px;"><a style="color:blue" (click)="sendEmail()" [mat-dialog-close]="true"> Forgot Password? </a></p>
+  </form>
+</div>

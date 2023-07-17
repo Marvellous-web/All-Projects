@@ -1,0 +1,25 @@
+#tb1{
+  background-color: black;
+  height:90px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+.red-color {
+  color:red;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+#detailscard{
+  display: grid;
+  /* width: 50%; */
+  /* height: 200px; */
+  grid: 140px/auto auto;
+  grid-gap: 50px;
+  float: left;
+}

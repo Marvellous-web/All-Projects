@@ -1,0 +1,91 @@
+<div id="form1">
+    <form [formGroup]="registerForm" >
+      <h1>Fill Up Registration Details  <button mat-button class="close-icon" color="warn" [mat-dialog-close]="true" id="close">
+        <mat-icon>close</mat-icon>
+    </button></h1> <br>
+      <mat-form-field appearance="fill" style="margin-top: -50px;">
+        <mat-label>Email Id</mat-label>
+        <input matInput type="text" name="emailID" id="emailID" formControlName="emailID" required>
+        <mat-icon matPrefix>mail</mat-icon>
+        <mat-error *ngIf="emailID?.errors?.['required']">
+          Email ID is required
+        </mat-error>
+        <mat-error *ngIf="emailID?.errors?.['pattern']">
+          Please Enter Valid Email ID
+      </mat-error>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill" >
+        <mat-label>User Name</mat-label>
+        <input matInput type="text" formControlName="name" required>
+        <mat-icon matPrefix>person</mat-icon>
+        <mat-error *ngIf="name?.errors?.['required']">
+         Please Enter Full Name
+        </mat-error>
+        <mat-error *ngIf="name?.errors?.['required']">
+          Please Enter Full Name
+         </mat-error>
+         <mat-error *ngIf="name?.errors?.['pattern']">
+         Name can only contain letters and spaces. Please Enter Valid Name.
+       </mat-error>
+      </mat-form-field> <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+        <mat-icon matSuffix (click)="togglePassword()" id="password"> {{showPassword?'visibility_off':'visibility'}}</mat-icon>
+        <mat-error *ngIf="password?.errors?.['required']">
+          Please Enter Password
+         </mat-error>
+        <mat-error *ngIf="password?.errors?.['pattern']">
+          Password should have min 8 letter password, with at least a symbol, upper and lower case letters
+          and a number.
+      </mat-error>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Location</mat-label>
+        <input matInput type="text" formControlName="location" required minlength="3">
+        <mat-icon matPrefix>room</mat-icon>
+        <mat-error *ngIf="name?.errors?.['pattern']">
+          Location can only contain letters and spaces. Please Enter Valid Location.
+        </mat-error>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Number</mat-label>
+        <input matInput type="text" formControlName="mobileNo">
+        <mat-icon matPrefix>call</mat-icon>
+        <mat-error *ngIf="mobileNo?.errors?.['pattern']">
+          Please Enter Valid Mobile No.
+         </mat-error>
+      </mat-form-field>
+      <br> <br>
+      <!-- <button mat-raised-button color="warn" [disabled]="registerForm.invalid">Signup</button> -->
+      <!-- <button mat-raised-button color="warn" type="reset">Clear</button> <br> <br> -->
+       <!-- <p style="margin-left: 10%;">Already have an account? <a style="color:blue" (click)="goToLogin()" [mat-dialog-close]="true"> Login </a> </p> -->
+    </form>
+    </div>
+    <div>
+        <form [formGroup]="requestForm" (ngSubmit)="sendRequest()">
+            <h1>Restaurant Name Details</h1>
+              <mat-form-field appearance="fill">
+                <mat-label>Re-Enter your Email Id</mat-label>
+                <input matInput type="text" name="emailID" id="emailID" formControlName="emailID" required>
+                <mat-icon matPrefix>mail</mat-icon>
+                <mat-error *ngIf="emailID?.errors?.['required']">
+                  Email ID is required
+                </mat-error>
+              </mat-form-field><br>
+              <mat-form-field appearance="fill">
+                <mat-label>Restaurant Name</mat-label>
+                <input matInput type="text" name="resName" id="resName" formControlName="resName" required>
+                <!-- <mat-icon matPrefix>mail</mat-icon> -->
+                <mat-error *ngIf="resName?.errors?.['required']">
+                  Restaurant Name is required
+                </mat-error>
+                <mat-error *ngIf="name?.errors?.['pattern']">
+                  Name can only contain letters and spaces. Please Enter Valid Name.
+                </mat-error>
+              </mat-form-field><br>
+              <button mat-raised-button color="warn" [disabled]="requestForm.invalid">Send Request</button>
+        </form>
+    </div>
+
+

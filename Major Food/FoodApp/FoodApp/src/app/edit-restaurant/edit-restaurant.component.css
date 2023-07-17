@@ -1,0 +1,41 @@
+#removebtn
+{
+  background-color: rgb(142, 177, 177);
+}
+#cuisineaction{
+background-color: rgb(230, 220, 230);
+}
+#addItem{
+  background-color: rgb(184, 135, 116);
+}
+#hr{
+  border: 1px solid black;
+}
+#hr1
+{
+  border:0.5px solid gray;
+}
+#dltCuisine{
+  width: 3%;
+}
+#tb1{
+  background-color: black;
+  height:90px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+.red-color {
+  color:red;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+#btn{
+  color: gray;
+  background-color: antiquewhite;
+}

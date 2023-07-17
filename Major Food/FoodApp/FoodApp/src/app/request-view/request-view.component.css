@@ -1,0 +1,15 @@
+#tb1{
+    background-color: black;
+    height:90px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  th{
+    font-size: 20px;
+  }
+  td{
+    font-size: 17px;
+    cursor: pointer;
+  }

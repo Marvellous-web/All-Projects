@@ -1,0 +1,57 @@
+<mat-toolbar id="tb1" >
+  <div id="d1">
+ <img src="./assets/FOODIELOGO.jpg" style="width:200px;">
+  </div>
+  <div style="margin-left: 30%;margin-top: 10px; color: aliceblue;">
+    <mat-form-field appearance="fill" style="width: 90%;font-size: 13px;">
+      <mat-label style="font-size:15px">Search Users </mat-label>
+      <mat-select [(ngModel)]="selection">
+        <mat-option value="User" (click)="searchByRole()" style="font-size: 13px;">
+          User
+        </mat-option>
+        <mat-option value="Owner" (click)="searchByRole()" style="font-size: 13px;">Owner</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button style="height: 30px; width: 30px; margin-left: 30%;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h5 style="color: whitesmoke; margin-left:10px;font-size: 15px;">{{userDetails.name}}</h5>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- <button mat-raised-button (click)="goToAdminView()">Back</button> -->
+<mat-icon (click)="goToAdminView()">arrow_circle_left</mat-icon>
+<img align="right" src="./assets/admin_login.png" style="width: 90px;"> <br>
+
+<br><br>
+<!-- {{allUserDetails | json}} -->
+<!-- {{filteredUserDetails | json}} -->
+<div *ngFor="let f of filteredUserDetails" id="detailscard" >
+  <mat-card>
+    NAME  : {{f.name}} <br>
+    EMAIL ID : {{f.emailID}} <br>
+    LOCATION : {{f.location}} <br>
+    ROLE : {{f.role}} <br>
+    MOBILE NO : {{f.mobileNo}}
+  </mat-card>
+</div>
+<!-- <div *ngFor="let f of filteredUserDetails">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{f.name}}</mat-card-title>
+        <mat-card-subtitle>{{f.mobileNo}}</mat-card-subtitle>
+        <img mat-card-sm-image src="data:image/JPEG;base64,{{f.profile.data}}" >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      {{f.emailID}}
+    </mat-card-content>
+  </mat-card>
+</div> -->
+

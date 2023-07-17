@@ -1,0 +1,59 @@
+
+
+
+
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" autocomplete="on">
+      
+          <!---Email ID---->
+          <div class="box">
+        <label for="email" class="fl fontLabel"> Email ID: </label>
+              <div class="fl iconBox"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+              <div class="fr">
+                      <input type="email" required  placeholder="Email Id" class="textBox" formControlName="emailId">
+              </div>
+              <div class="clr"></div>
+          </div>
+          <!--Email ID----->
+
+
+          <!---Password------>
+          <div class="box">
+        <label for="password" class="fl fontLabel"> Password </label>
+              <div class="fl iconBox"><i class="fa fa-key" aria-hidden="true"></i></div>
+              <div class="fr">
+                      <input type="Password" required  placeholder="Password" class="textBox" formControlName="password">
+              </div>
+              <div class="clr"></div>
+          </div>
+          <!---Password---->
+
+     
+
+          <!---Gender----->
+          <div class="box radio">
+        <label for="gender" class="fl fontLabel" > Gender: </label>
+                  <input type="radio"  formControlName="gender" value="Male" required> Male &nbsp; &nbsp; &nbsp; &nbsp;
+                  <input type="radio"  formControlName="gender" value="Female" required> Female
+          </div>
+          <!---Gender--->
+
+
+
+
+
+          <!---Submit Button------>
+          <div class="box" style="background: #2d3e3f">
+                  <input type="Submit"  class="submit" value="SUBMIT">
+                  <button class="submit" (click)="login()">Signup</button>
+          </div>
+
+          <!---Submit Button----->
+
+
+    </form>
+</div>
+
+
+
+

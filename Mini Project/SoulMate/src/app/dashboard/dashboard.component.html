@@ -1,0 +1,21 @@
+<h1>Soulmet  Profile</h1>
+
+<!-- {{getData|json}} -->
+<br>
+<div *ngFor="let data of getData" id="card">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Profile</mat-card-title>
+        </mat-card-header>
+        
+     <mat-card-content>Name : {{data.name}}</mat-card-content>
+     <mat-card-content>Name : {{data.id}}</mat-card-content>
+    <mat-card-content>Age : {{data.age}}</mat-card-content>
+   <mat-card-content>City : {{data.city}}</mat-card-content>
+     <mat-card-content>Email Id :{{data.emailId}}</mat-card-content>
+    <mat-card-content>Password : {{data.password}}</mat-card-content>
+    <mat-chip-option style="width: 15%; background-color: aqua;">{{data.gender}}</mat-chip-option> 
+    <button style="color: black;" (click)="PersonAdded(data)">Interested</button> 
+    
+      </mat-card>
+</div>

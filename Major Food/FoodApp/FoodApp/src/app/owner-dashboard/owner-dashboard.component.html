@@ -1,0 +1,39 @@
+<mat-toolbar id="tb1" >
+  <div id="d1">
+ <!-- <mat-icon class="material-icons red-color">restaurant</mat-icon><span id="span">Foodie Hunt</span> -->
+ <img style="width:200px"src="./assets/FOODIELOGO.jpg">
+  </div>
+
+  <button style="height: 30px; width: 30px; margin-left: 73%;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h3 style="color: whitesmoke; margin-left:10px;">{{userDetails.name}}</h3>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/editUserDetails/{{userDetails.emailID}}">
+      <mat-icon>update</mat-icon>
+      <span>Update Profile</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<!-- <button mat-raised-button (click)="gotohomepage()">Back</button> -->
+<mat-icon (click)="gotohomepage()">arrow_circle_left</mat-icon>
+<img align="right" src="./assets/owner_login.png"style="width: 80px;"> <br>
+
+<br>
+<!-- {{restaurantDetails | json}} -->
+<div id="carddiv" *ngFor="let r of restaurantDetails" >
+  <mat-card>
+    <h1><b>{{r.name}}</b></h1>
+    <img id="cardimg" src="data:image/JPEG;base64,{{r.restImage.data}}">
+    <mat-card-content>
+      <h2 style="padding-top: 10px;"><mat-icon>room</mat-icon>{{r.location}}</h2>
+    </mat-card-content> <hr>
+    <mat-card-actions>
+      <button mat-raised-button style="margin-left: 49%" color="primary" routerLink="/editRestaurant/{{r.name}}">Edit Restaurant</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

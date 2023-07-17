@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="main">We've found perfect match for you !</div>
+   <div class="profile-container">
+         <mat-card *ngFor="let profile of profiles | slice:profileUp:profileDown; let i=index;" id="{{profile?.id}}-card">
+            <div class="profile-up">
+            </div>
+            <a href="javascript:void(0)" (mouseenter)="up(profile?.id)" (mouseleave)="down(profile?.id)" id="{{profile?.id}}">
+            <mat-card-title>{{profile?.name}}</mat-card-title>
+            <mat-card-content>
+                <div class="profile">
+                    <div class="profile-location"><i class="fa-solid fa-location-dot"></i>&nbsp;{{profile?.city}}</div>
+                    <div class="profile-age"><i class="fa-solid fa-cake-candles"></i>&nbsp;{{profile?.age}}</div>
+                    <div class="profile-image"><img src="../../assets/images/akansha.jpg"></div>
+                </div >
+                <div class="event">
+                    <button mat-raised-button color="warn" (click)="remove(profile?.id)">Not Intrested</button>
+                    <button mat-raised-button color="success" (click)="liked(profile?.email, profile?.id)">Intrested</button>
+                </div>
+            </mat-card-content>
+            </a>
+        </mat-card>
+   </div>
+  <div class="main text-two">People Nearby you !</div>
+   <div class="profile-container">
+         <mat-card *ngFor="let profile of pNearBy" id="{{profile?.id + 'b'}}-card">
+            <a href="javascript:void(0)" (mouseenter)="up(profile?.id+'b')" (mouseleave)="down(profile?.id+'b')" id="{{profile?.id+'b'}}">
+            <mat-card-title>{{profile?.name}}</mat-card-title>
+            <mat-card-content>
+                <div class="profile">
+                    <div class="profile-location"><i class="fa-solid fa-location-dot"></i>&nbsp;{{profile?.city}}</div>
+                    <div class="profile-age"><i class="fa-solid fa-cake-candles"></i>&nbsp;{{profile?.age}}</div>
+                    <div class="profile-image"><img src="../../assets/images/akansha.jpg"></div>
+                </div >
+                <div class="event">
+                    <button mat-raised-button color="warn" (click)="remove(profile?.id)">Not Intrested</button>
+                    <button mat-raised-button color="success" (click)="liked(profile?.email, profile?.id)">Intrested</button>
+                </div>
+            </mat-card-content>
+            </a>
+        </mat-card>
+   </div>
+    <button mat-icon-button class="btn-slide-left" (click)="slider('left')"><i class="fa-solid fa-chevron-left slide-left"></i></button>
+     <button mat-icon-button class="btn-slide-right" (click)="slider('right')"><i class="fa-solid fa-chevron-right slide-right"></i></button>
+</div>

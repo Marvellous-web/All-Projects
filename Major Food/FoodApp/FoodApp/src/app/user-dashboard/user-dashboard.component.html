@@ -1,0 +1,129 @@
+<!-- {{userDetails|json}} -->
+<mat-toolbar id="tb1" >
+  <div id="d1">
+ <!-- <mat-icon class="material-icons red-color">restaurant</mat-icon><span id="span">Foodie Hunt</span> -->
+ <img style=" width: 190px" src="./assets/FOODIELOGO.jpg" alt="">
+  </div>
+  <div class="material-table" id="search">
+    <mat-form-field  style="width: 20%" >
+      <mat-label style="font-size: 12px;">Search By</mat-label>
+      <mat-select [(ngModel)]="selection" style="font-size:13px;color: rgb(199, 85, 85);">
+        <mat-option value="Location" style="font-size: 15px;">Location</mat-option>
+        <mat-option value="Cuisine Name" style="font-size: 15px;">Cuisine Name</mat-option>
+        <mat-option value="Item Name" style="font-size: 15px;">Item Name</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="width: 300px; margin-left: 1%;" class="example-full-width" >
+      <mat-label style="font-size: 12px;">Search</mat-label>
+      <input matInput [(ngModel)]="filterName"  placeholder="Ex. Pizza / Chennai / Italian" style="font-size:15px;" >
+      <mat-icon matTooltip="Search" style="cursor: pointer;"  matSuffix (click)="filterRestaurant()">search</mat-icon>
+    </mat-form-field>
+    <mat-icon matTooltip="Clear"  style="cursor: pointer;" (click)="clear()">close</mat-icon>
+  </div>
+  <!-- <button mat-raised-button (click)="getUserLocationRes(userDetails.location)" style="margin-left: 50%;">Find Your NearBy Restaurants</button> -->
+  <button style="height: 30px; margin-left: 19% ;width: 30px;" mat-fab id="btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="height:30px;width: 30px;border-radius: 50%;margin-top: -26px;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" >
+  </button>
+  <h3 style="color: whitesmoke;margin-left: 15px;font-size: 15px;">{{userDetails.name}}</h3>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/editUserDetails/{{userDetails.emailID}}">
+      <mat-icon>update</mat-icon>
+      <span>Update Profile</span>
+    </button>
+    <button mat-menu-item routerLink="/userFav">
+      <mat-icon>favorite</mat-icon>
+      <span>Favorite Restaurant</span>
+    </button>
+    <button mat-menu-item routerLink="/placeOrder">
+      <mat-icon>list</mat-icon>
+      <span>Cart Items</span>
+    </button>
+    <button mat-menu-item routerLink="/feedback">
+      <mat-icon>feedback</mat-icon>
+      <span>FeedBack</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<div style="display:inline-flex">
+<!-- <button mat-raised-button (click)="gotohomepage()">Back</button> -->
+<mat-icon (click)="gotohomepage()">arrow_circle_left</mat-icon>
+<h2 style="margin-left:1120px;"><a (click)="getUserLocationRes(userDetails.location)" style="cursor: pointer;"><u>find near by restaurant</u></a></h2></div>
+ <hr>
+<!-- <div class="material-table" id="search">
+  <mat-form-field appearance="fill">
+    <mat-label>Search By</mat-label>
+    <mat-select [(ngModel)]="selection">
+      <mat-option value="Location">
+        Location
+      </mat-option>
+      <mat-option value="Cuisine Name">Cuisine Name</mat-option>
+      <mat-option value="Item Name">Item Name</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field style="width: 400px; margin-left: 1%;" class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput [(ngModel)]="filterName"  placeholder="Ex. Pizza / Chennai / Italian">
+    <mat-icon matTooltip="Search" style="cursor: pointer;"  matSuffix (click)="filterRestaurant()">search</mat-icon>
+  </mat-form-field>
+  <mat-icon matTooltip="Clear"  style="cursor: pointer;" (click)="clear()">close</mat-icon>
+</div> -->
+
+<!-- {{userLocationRes | json}} -->
+<div *ngIf="allCard" >
+  <div *ngFor="let f of allRestaurants" id="carddiv" style="margin-left: 20px;">
+    <mat-card  >
+      <h1>{{f.name}}</h1>
+
+      <img id="cardimg" src="data:image/JPEG;base64,{{f.restImage.data}}" routerLink="/restaurantDetails/{{f.name}}">
+      <mat-card-content>
+        <h2>{{f.location}}</h2>
+      </mat-card-content>
+      <hr>
+      <mat-card-actions>
+        <!-- <button id="btn1" (click)="addToFavouriteList(f)" color="accent" mat-button aria-label="Example icon button with a plus one icon">
+          <mat-icon id="btn1" (click)="addToFavouriteList(f)">favorite</mat-icon>
+        </button> -->
+        <mat-icon id="btn1" (click)="addToFavouriteList(f)" (click)="addEvent(f)" [ngStyle]="{'color':f.select ? 'red' : 'black' }" matTooltip="Add To Favorite">favorite</mat-icon>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="locationCard" id="carddiv" >
+  <div  *ngFor="let r of userLocationRes">
+    <mat-card>
+      <h1>{{r.name}}</h1>
+      <img id="cardimg" src="data:image/JPEG;base64,{{r.restImage.data}}" routerLink="/cartView/{{r.name}}">
+      <mat-card-content>
+        <h2>{{r.location}}</h2>
+      </mat-card-content>
+      <hr>
+      <mat-card-actions>
+        <mat-icon id="btn1" (click)="addToFavouriteList(r)" matTooltip="Add To Favorite">favorite</mat-icon>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+
+<div *ngIf="filterCard" >
+  <div *ngFor="let f of filteredDetails" id="carddiv" >
+    <mat-card  >
+      <h1>{{f.name}}</h1>
+      <img id="cardimg" src="data:image/JPEG;base64,{{f.restImage.data}}" routerLink="/restaurantDetails/{{f.name}}">
+      <mat-card-content>
+        <h2>{{f.location}}</h2>
+      </mat-card-content>
+      <hr>
+      <mat-card-actions>
+        <mat-icon id="btn1" (click)="addToFavouriteList(f)"  matTooltip="Add To Favorite">favorite_border</mat-icon>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,51 @@
+#tb1{
+  background-color: black;
+  height:80px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+.red-color {
+  color:red;
+}
+#span{
+  margin-left: 10%;
+  font-size: 30px;
+  font-style: italic;
+  color: aliceblue;
+}
+#img1{
+  width: 700px;
+  height: 320px;
+  border-image: 1px solid;
+}
+#itemCard{
+  width: fit-content;
+  height: fit-content;
+ /* margin-top: 2%;
+  margin-left: 9%; */display: inline-flex;
+  margin-left: 20px;
+  box-shadow: 5px 5px 5px gray;
+}
+.grid-container
+{
+  margin-left:30px;
+  margin-top:25px;
+  display: grid;
+  gap: 150px;
+  grid-template-columns: repeat(2, 1fr);
+}
+#restName{
+  /* margin-left: 65%; */
+  margin-top: 50px;
+  font-weight: bold;
+  /* text-decoration: underline; */
+  font-size: 40px;
+}
+#d1{
+  position: fixed;
+}
+mat-option {
+  color: red;
+}

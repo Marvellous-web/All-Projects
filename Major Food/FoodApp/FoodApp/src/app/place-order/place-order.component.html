@@ -1,0 +1,70 @@
+<mat-toolbar id="tb1" >
+  <div id="d1">
+    <img src="./assets/FOODIELOGO.jpg" style="width: 200px;">
+  </div>
+  <button mat-fab style="width: 30px;height: 30px;margin-left: 72%;" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img style="width: 30px;height: 30px; border-radius: 50%;margin-top: -88%;" src="data:image/JPEG;base64,{{userDetails.profile.data}}" alt="">
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon >logout</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
+  <h3 style="color: whitesmoke;margin-left: 10px;font-size: 15px;">{{userDetails.name}}</h3>
+</mat-toolbar>
+<mat-icon (click)="goBack()">arrow_circle_left</mat-icon>
+<!-- {{orders|json}} -->
+<div id="table">
+  <div class="container">
+    <table class="table  table-striped">
+      <thead>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Action</th>
+        <th>Price</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ord of orders">
+          <td>{{ord.itemName1}}</td>
+          <td> {{ord.quantity}}</td>
+          <td>
+            <mat-icon id="btn1" style="margin-left: -15px;" matTooltip="remove item" (click)="removeCartItem(ord.itemName1,ord.price)">remove_circle</mat-icon>
+            <mat-icon style="margin-left: 15px;" id="btn1" matTooltip="add again" (click)="addQuantity(ord.itemName1,ord.price)" >add_circle</mat-icon>
+          </td>
+          <td>{{ord.totalPrice}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-left: 76%;"> <hr style="border:1px solid black;">
+      <p style="font-size: 20px; margin-left: 18%;">Total Price : Rs. {{total}}</p>
+    </div>
+    <button mat-raised-button color="accent" style="margin-top: 5%;" (click)="placeOrder()">Place Order</button>
+  </div>
+</div>
+
+<br>
+<!-- <div id="table">
+  <div class="container">
+    <table  class="table  table-striped">
+        <thead>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of userDetails.cartItems">
+                <td>{{c.itemName}}</td>
+                <td>{{c.price}}</td>
+                <td>
+                  <button id="btn1"(click)="removeCartItem(c)" mat-raised-button aria-label="Example icon button with a plus one icon">
+                    <mat-icon>remove_circle</mat-icon>Cancel Items
+                  </button>
+                </td>
+            </tr>
+
+        </tbody>
+        <button mat-raised-button color="accent" style="margin-top: 5%;" (click)="placeOrder()">Place Order</button>
+    </table>
+  </div>
+</div> -->
